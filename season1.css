@@ -1,0 +1,684 @@
+/* ===== Заголовок ===== */
+
+.season-header {
+  margin-top: 120px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.season-header h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.season-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.meta-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #00e6e6;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.meta-value {
+  font-weight: 500;
+}
+
+/* Tooltip */
+
+.meta-item::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.meta-item:hover::after {
+  opacity: 1;
+}
+/* Уменьшаем ширину всей страницы сезона */
+.season-page {
+  width: 75%;         /* было 85% → чуть уже */
+  max-width: 900px;   /* ограничение */
+  margin: 0 auto 60px auto;
+}
+
+.season-page-content {
+  display: none;
+}
+
+.season-page-content.active {
+  display: block;
+}
+
+.season-info {
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,206,209,0.15);
+}
+
+.season-number {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+} 
+.season-stats p {
+  font-size: 1rem;
+  margin: 4px 0;
+  color: rgba(255,255,255,0.9);
+}
+
+.season-tabs {
+  display: flex;
+  justify-content: center;  /* 👈 центр по горизонтали */
+  align-items: center;
+  gap: 30px;
+
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* КНОПКИ БЕЗ ОБВОДКИ И ФОНА */
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 6px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  font-weight: 500;
+
+  justify-content: center; /* иконка + текст тоже по центру */
+  cursor: pointer;
+  position: relative;
+
+  transition: 0.25s ease;
+}
+
+/* ИКОНКА */
+.tab-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: rgba(255,255,255,0.55);
+  stroke-width: 1.8;
+  transition: 0.25s ease;
+}
+
+/* HOVER */
+.tab-btn:hover {
+  color: rgba(255,255,255,0.9);
+}
+
+.tab-btn:hover .tab-icon {
+  stroke: #00e6e6;
+  transform: translateY(-1px);
+}
+
+/* АКТИВНАЯ */
+.tab-btn.active {
+  color: #ffffff;
+}
+
+.tab-btn.active .tab-icon {
+  stroke: #00e6e6;
+}
+
+/* ЛИНИЯ ПОД АКТИВНОЙ ВКЛАДКОЙ */
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #00e6e6;
+  transition: 0.3s ease;
+  border-radius: 2px;
+}
+
+.tab-btn.active::after {
+  width: 100%;
+}
+
+.screenshots {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+.screenshots img {
+  width: 240px;
+  border-radius: 12px;
+}
+
+.season-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+}
+
+.download-btn {
+  background: #00e6e6;
+  color: #000;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== СЛАЙДЕР ===== */
+
+.season-slider {
+  width: 900px;
+  overflow: hidden;
+  max-width: 95%;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 18px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider-track img {
+  width: 100%;
+  height: 400px;   /* было 420–450 → делаем больше */
+  object-fit: cover;
+  min-width: 100%;
+  border-radius: 18px;
+}
+
+.slider-btn {
+  width: auto;
+  height: auto;
+
+  background: none;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  padding: 8px;
+
+  opacity: 0.65;
+  transition: 0.25s ease;
+
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.slider-btn svg {
+  width: 26px;
+  height: 26px;
+
+  stroke: rgba(255,255,255,0.7);
+  stroke-width: 2.2;
+  fill: none;
+
+  transition: 0.25s ease;
+}
+
+/* hover */
+.slider-btn:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.slider-btn:hover svg {
+  stroke: #00e6e6;
+  filter: drop-shadow(0 0 8px rgba(0,230,230,0.5));
+}
+
+/* click */
+.slider-btn:active {
+  transform: scale(0.95);
+}
+.season-description {
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto 20px auto;
+  padding: 30px 35px;
+  border-radius: 18px;
+}
+
+.season-description p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 18px;
+}
+
+.season-description p:last-child {
+  margin-bottom: 0;
+}
+
+.season-save {
+  margin-top: 30px;
+}
+
+.save-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 22px;
+
+  background: rgba(255,255,255,0.03);
+
+  border: 1px solid rgba(0,230,230,0.08);
+
+  border-radius: 18px;
+
+  transition: 0.3s ease;
+}
+
+.save-item:hover {
+  background: rgba(0,230,230,0.04);
+  border-color: rgba(0,230,230,0.18);
+}
+
+.save-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.folder-icon {
+  width: 28px;
+  height: 28px;
+
+  fill: none;
+  stroke: #00e6e6;
+  stroke-width: 1.7;
+}
+
+.save-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.save-info span {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* КРАСИВАЯ КНОПКА */
+.download-btn-modern {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: none;
+  border: none;
+
+  color: white;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.download-btn-modern:hover {
+  background: rgba(0,230,230,0.08);
+}
+
+.download-btn-modern:hover .download-icon {
+  stroke: #00e6e6;
+  transform: translateY(2px);
+}
+
+.download-icon {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: rgba(255,255,255,0.7);
+  stroke-width: 2;
+
+  transition: 0.25s ease;
+}
+
+.folder-icon {
+  width: 24px;
+  height: 24px;
+}
+
+
+.download-btn-symbol {
+  background: #00e6e6;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto; /* кнопка справа */
+}
+
+.download-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Общий scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  background: #0a0a0a;
+}
+
+/* Фон */
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+/* Сам ползунок */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(120,120,120,0.8);
+  border-radius: 999px;
+  border: 3px solid #0a0a0a;
+}
+
+/* ===== Маленькая GIF ===== */
+
+.easter2-gif {
+  display: none;
+
+  width: 34px;
+  height: 34px;
+
+  object-fit: contain;
+  cursor: pointer;
+
+  position: fixed;
+
+  right: 30px;
+  bottom: 30px;
+
+  z-index: 9999;
+
+  opacity: 0.95;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
+
+  user-select: none;
+}
+
+/* hover */
+.easter2-gif:hover {
+  transform: scale(1.15) rotate(6deg);
+  opacity: 1;
+
+  filter:
+    drop-shadow(0 0 12px rgba(255,255,255,0.6));
+}
+
+/* ===== ВЗРЫВ ===== */
+
+.easter2-gif.explode {
+  animation: explodeAnim 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes explodeAnim {
+
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter:
+      brightness(1)
+      blur(0px);
+  }
+
+  15% {
+    transform: scale(1.35) rotate(-8deg);
+    filter:
+      brightness(2)
+      blur(0px);
+  }
+
+  35% {
+    transform: scale(2.2) rotate(12deg);
+    opacity: 1;
+
+    filter:
+      brightness(5)
+      blur(1px)
+      drop-shadow(0 0 25px #fff);
+  }
+
+  55% {
+    transform: scale(2.8) rotate(-18deg);
+
+    filter:
+      brightness(9)
+      blur(4px)
+      drop-shadow(0 0 40px #ff00ff);
+  }
+
+  100% {
+    transform:
+      scale(0)
+      rotate(40deg);
+
+    opacity: 0;
+
+    filter:
+      brightness(14)
+      blur(12px);
+  }
+}
+
+.easter2-notification {
+  position: fixed;
+
+  left: 50%;
+  top: 28px;
+
+  transform:
+    translateX(-50%)
+    translateY(-160px)
+    scale(0.6);
+
+  padding: 16px 30px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #a855f7,
+      #ec4899
+    );
+
+  color: white;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  z-index: 2147483647;
+
+  border: 2px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 0 25px rgba(168,85,247,0.45),
+    0 0 60px rgba(236,72,153,0.25);
+
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  will-change: transform, opacity;
+}
+
+/* ===== Появление ===== */
+
+.easter2-notification.show {
+  animation: notificationIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ===== Исчезновение ===== */
+
+.easter2-notification.hide {
+  animation: notificationOut 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* ===== Появление ===== */
+
+@keyframes notificationIn {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.6)
+      rotate(-4deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+
+  60% {
+    transform:
+      translateX(-50%)
+      translateY(10px)
+      scale(1.08)
+      rotate(2deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+}
+
+/* ===== Исчезновение ===== */
+
+@keyframes notificationOut {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  30% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1.06)
+      rotate(-2deg);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.75)
+      rotate(6deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+}
+
+.meta-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+

@@ -1,0 +1,986 @@
+/* ===========================
+   rules.css — полный файл
+   (шапка / соцкружки / футер совпадают
+    со стилем main.html)
+=========================== */
+
+/* ========== БАЗА ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background-color: #0a0a0a; 
+  overflow-x: hidden;
+}
+
+
+
+/* =========================================
+   ULTRA MODERN RULE BLOCKS
+========================================= */
+
+/* =========================================
+   MODERN RULE BLOCKS — IZZZILAND STYLE
+========================================= */
+
+.rules-container {
+  width: 82%;
+  max-width: 1050px;
+
+  margin:
+    30px auto
+    120px auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   БЛОК ПРАВИЛ
+========================= */
+
+/* =========================================
+   TOAST — ПУНКТ СКОПИРОВАН
+========================================= */
+
+#copy-toast {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+
+  padding: 14px 26px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 255, 255, 0.18),
+      rgba(0, 180, 180, 0.12)
+    );
+
+  border: 1px solid rgba(0,255,255,0.22);
+
+  backdrop-filter: blur(16px);
+
+  color: #dfffff;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.16),
+    inset 0 0 18px rgba(255,255,255,0.03);
+
+  opacity: 0;
+  pointer-events: none;
+
+  z-index: 999999;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* верхняя светящаяся линия */
+#copy-toast::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #00ffff,
+      transparent
+    );
+
+  opacity: 0.9;
+}
+
+/* иконка */
+#copy-toast::after {
+  content: "✓";
+
+  margin-left: 10px;
+
+  color: #00ffff;
+
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.8);
+}
+
+#copy-toast.show {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+/* =========================================
+   RULE BLOCKS — IZZZILAND STYLE
+========================================= */
+
+.rule-block {
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18,18,20,0.92),
+      rgba(10,10,12,0.98)
+    );
+
+  border-radius: 22px;
+
+  padding: 22px 26px;
+
+  border:
+    1px solid rgba(0,255,255,0.08);
+
+  box-shadow:
+    0 0 30px rgba(0,255,255,0.05),
+    inset 0 0 30px rgba(255,255,255,0.015);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+/* бирюзовая полоска сверху */
+.rule-block::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,255,255,0.95),
+      transparent
+    );
+
+  opacity: 0.9;
+}
+
+.rule-block:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(0,255,255,0.18);
+
+  box-shadow:
+    0 0 38px rgba(0,255,255,0.09),
+    inset 0 0 35px rgba(255,255,255,0.02);
+}
+
+/* заголовок */
+.rule-block h2 {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  margin-bottom: 16px;
+
+  color: #00f0f0;
+
+  letter-spacing: 0.3px;
+}
+
+.rule-block h2::before {
+  content: "";
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #00ffff;
+
+  box-shadow:
+    0 0 10px #00ffff,
+    0 0 24px rgba(0,255,255,0.6);
+}
+
+/* список */
+.rule-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* пункты */
+.rule-block li {
+  position: relative;
+
+  padding-left: 18px;
+  margin-bottom: 10px;
+
+  font-size: 14.5px;
+  line-height: 1.6;
+
+  color: rgba(255,255,255,0.82);
+
+  cursor: pointer;
+
+  transition:
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+/* маленькая точка */
+.rule-block li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 11px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0,255,255,0.55);
+
+  transition: 0.22s ease;
+}
+
+/* hover */
+.rule-block li:hover {
+  color: #dfffff;
+
+  transform: translateX(4px);
+}
+
+.rule-block li:hover::before {
+  background: #00ffff;
+
+  box-shadow:
+    0 0 8px rgba(0,255,255,0.8);
+}
+
+/* =========================
+   ССЫЛКИ
+========================= */
+
+.discord-link {
+  color: #00d9d9;
+  text-decoration: none;
+
+  transition:
+    color 0.22s ease,
+    text-shadow 0.22s ease;
+}
+
+.discord-link:hover {
+  color: #00ffff;
+
+  text-decoration: none;
+
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.65);
+}
+
+/* =========================
+   АНИМАЦИЯ ПОЯВЛЕНИЯ
+========================= */
+
+.rule-block {
+  opacity: 0;
+
+  transform:
+    translateY(24px);
+
+  animation:
+    ruleFade 0.7s ease forwards;
+}
+
+.rule-block:nth-child(1) { animation-delay: 0.04s; }
+.rule-block:nth-child(2) { animation-delay: 0.08s; }
+.rule-block:nth-child(3) { animation-delay: 0.12s; }
+.rule-block:nth-child(4) { animation-delay: 0.16s; }
+.rule-block:nth-child(5) { animation-delay: 0.2s; }
+.rule-block:nth-child(6) { animation-delay: 0.24s; }
+.rule-block:nth-child(7) { animation-delay: 0.28s; }
+.rule-block:nth-child(8) { animation-delay: 0.32s; }
+.rule-block:nth-child(9) { animation-delay: 0.36s; }
+
+@keyframes ruleFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .rules-container {
+    width: 92%;
+    gap: 18px;
+  }
+
+  .rule-block {
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+
+  .rule-block h2 {
+    font-size: 20px;
+  }
+
+  .rule-block li {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+}
+
+.rules-sidebar {
+  position: fixed !important;
+  right: 14px !important;   /* было 6px — теперь ЧУТЬ левее */
+  left: auto !important;
+  
+  top: 18% !important;      /* было 22% — теперь ЧУТЬ выше */
+  transform: none !important;
+
+  width: 260px !important;
+  padding: 10px !important;
+
+  background: rgba(0, 255, 255, 0.15) !important;
+  border: 1px solid rgba(0, 255, 255, 0.35) !important;
+  border-radius: 14px !important;
+
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.25) !important;
+  backdrop-filter: blur(6px) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+
+  z-index: 99999 !important;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* Кнопки внутри */
+.rules-sidebar button {
+  width: 100%;
+  height: 24px;
+  padding: 4px 14px;
+
+  background: rgba(0, 255, 255, 0.25);
+  border: none;
+  color: #fff;
+
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* ТЕКСТ ПРИЖАТ К ЛЕВОЙ СТОРОНЕ */
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  transition: 0.25s ease;
+}
+
+.rules-sidebar button:hover {
+  background: rgba(0, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.rules-sidebar button:active {
+  transform: scale(0.96);
+}
+
+
+.title-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  font-family: "Poppins", sans-serif; /* как у правил */
+  font-size: 0.98rem;                 /* почти как li */
+  font-weight: 400;                  /* как обычный текст */
+  text-transform: none;              /* убирает uppercase от h1 */
+  line-height: 1.6;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(0,0,0,0.85);
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  font-size: 0.95rem;
+  color: white;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.25s ease;
+
+  z-index: 9999;
+}
+
+.title-tooltip:hover .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* текст */
+.tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: rgba(255,255,255,0.92);
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  text-shadow: none;
+
+  filter: none;
+}
+
+/* иконки */
+.tooltip-row img {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 5px;
+
+  object-fit: cover;
+
+  flex-shrink: 0;
+
+  transform: translateY(2px);
+
+  image-rendering: auto;
+}
+
+/* =========================================
+   ULTRA MODERN RULES SIDEBAR
+========================================= */
+
+.rules-sidebar {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 260px;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 255, 255, 0.10),
+      rgba(0, 0, 0, 0.55)
+    );
+
+  backdrop-filter: blur(18px);
+
+  border:
+    1px solid rgba(0,255,255,0.18);
+
+  box-shadow:
+    0 0 30px rgba(0,255,255,0.12),
+    inset 0 0 25px rgba(255,255,255,0.03);
+
+  overflow: hidden;
+
+  z-index: 99999;
+}
+
+/* верхняя светящаяся полоска */
+.rules-sidebar::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #00ffff,
+      transparent
+    );
+
+  animation: sidebarGlow 3s linear infinite;
+}
+
+@keyframes sidebarGlow {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Заголовок */
+.rules-sidebar-title {
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #00ffff;
+
+  margin-bottom: 6px;
+
+  padding-left: 4px;
+
+  opacity: 0.9;
+}
+
+/* Кнопки */
+.rules-sidebar button {
+  position: relative;
+
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  border-radius: 16px;
+
+  padding: 13px 16px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  color: rgba(255,255,255,0.88);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* стеклянный блик */
+.rules-sidebar button::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.18),
+      transparent
+    );
+
+  transform: skewX(-25deg);
+
+  transition: 0.7s ease;
+}
+
+/* hover */
+.rules-sidebar button:hover {
+  transform:
+    translateX(-6px)
+    scale(1.02);
+
+  background:
+    rgba(0,255,255,0.10);
+
+  color: #00ffff;
+
+  box-shadow:
+    0 0 16px rgba(0,255,255,0.15);
+}
+
+.rules-sidebar button:hover::before {
+  left: 140%;
+}
+
+/* активная */
+.rules-sidebar button.active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,255,255,0.20),
+      rgba(0,255,255,0.07)
+    );
+
+  color: #00ffff;
+
+  box-shadow:
+    0 0 18px rgba(0,255,255,0.22);
+}
+
+/* Светящийся кружок */
+.rules-sidebar button::after {
+  content: "";
+
+  position: absolute;
+
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.25);
+
+  transition: 0.25s ease;
+}
+
+.rules-sidebar button:hover::after {
+  background: #00ffff;
+
+  box-shadow:
+    0 0 10px #00ffff;
+}
+
+.rules-sidebar button.active::after {
+  background: #00ffff;
+
+  box-shadow:
+    0 0 12px #00ffff,
+    0 0 24px rgba(0,255,255,0.8);
+}
+
+/* СКРОЛЛБАР если кнопок много */
+.rules-sidebar {
+  max-height: 78vh;
+  overflow-y: auto;
+}
+
+.rules-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.rules-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0,255,255,0.3);
+  border-radius: 20px;
+}
+
+/* адаптив */
+@media (max-width: 1200px) {
+  .rules-sidebar {
+    width: 220px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 980px) {
+  .rules-sidebar {
+    display: none;
+  }
+}
+
+
+/* =========================
+   EASTER GIF 4
+========================= */
+
+.easter-gif4 {
+  width: 34px;
+  height: 34px;
+
+  cursor: pointer;
+
+  position: fixed;
+
+  top: 120px;
+  right: 38px;
+
+  z-index: 999999;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.easter-gif4.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.easter-gif4:hover {
+  transform: scale(1.12) rotate(4deg);
+
+  filter:
+    drop-shadow(0 0 10px rgba(255,255,255,0.55));
+}
+
+/* =========================
+   EASTER GIF 4 EXPLOSION
+========================= */
+
+.easter-gif4.explode {
+  animation:
+    easterExplode4 1.2s cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.easter-gif4.hidden {
+  display: none;
+}
+
+@keyframes easterExplode4 {
+
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+
+    filter:
+      brightness(1)
+      blur(0px);
+  }
+
+  15% {
+    transform: scale(1.35) rotate(-8deg);
+
+    filter:
+      brightness(2);
+  }
+
+  35% {
+    transform: scale(2.2) rotate(12deg);
+
+    opacity: 1;
+
+    filter:
+      brightness(5)
+      blur(1px)
+      drop-shadow(0 0 25px #fff);
+  }
+
+  55% {
+    transform: scale(2.8) rotate(-18deg);
+
+    filter:
+      brightness(9)
+      blur(4px)
+      drop-shadow(0 0 40px #ff00ff);
+  }
+
+  100% {
+    transform:
+      scale(0)
+      rotate(40deg);
+
+    opacity: 0;
+
+    filter:
+      brightness(14)
+      blur(12px);
+  }
+}
+
+/* =========================
+   NOTIFICATION
+========================= */
+
+.easter-notification4 {
+  position: fixed;
+
+  left: 50%;
+  top: 28px;
+
+  transform:
+    translateX(-50%)
+    translateY(-160px)
+    scale(0.6);
+
+  padding: 16px 30px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #a855f7,
+      #ec4899
+    );
+
+  color: white;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  z-index: 2147483647;
+
+  border: 2px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 0 25px rgba(168,85,247,0.45),
+    0 0 60px rgba(236,72,153,0.25);
+
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  will-change: transform, opacity;
+}
+
+.easter-notification4.show {
+  animation:
+    notificationIn4 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.easter-notification4.hide {
+  animation:
+    notificationOut4 0.9s cubic-bezier(0.65, 0, 0.35, 1)
+    forwards;
+}
+
+@keyframes notificationIn4 {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.6)
+      rotate(-4deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+
+  60% {
+    transform:
+      translateX(-50%)
+      translateY(10px)
+      scale(1.08)
+      rotate(2deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+  }
+}
+
+@keyframes notificationOut4 {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.75)
+      rotate(6deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+}

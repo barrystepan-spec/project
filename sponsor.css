@@ -1,0 +1,476 @@
+body {
+  background: #070707;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.sponsor-header {
+  padding-top: 150px;
+  padding-bottom: 70px;
+
+  text-align: center;
+}
+
+.sponsor-header h1 {
+  font-size: 3.2rem;
+  color: #00e6e6;
+
+  text-shadow:
+    0 0 15px rgba(0,230,230,0.5),
+    0 0 40px rgba(0,230,230,0.15);
+
+  margin-bottom: 18px;
+}
+
+.sponsor-header p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.05rem;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+.sponsor-container {
+  width: 1056px;
+  max-width: 100%;
+
+  margin: 0 auto 120px auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 510px);
+  justify-content: center;
+
+  gap: 30px;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* =========================
+   CARD
+========================= */
+.nick-whitegray {
+  font-family: "Minecraft Rus", Arial, sans-serif;
+  font-size: 1.7rem;
+
+  background: linear-gradient(90deg, #ffffff, #787878);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* =========================
+   CARD
+========================= */
+
+.sponsor-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  height: 270px;
+
+  padding: 28px 32px;
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20,20,20,0.98),
+      rgba(10,10,10,0.98)
+    );
+
+  border:
+    1px solid rgba(0,255,255,0.08);
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.6);
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+/* glow overlay */
+.sponsor-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(0,255,255,0.10),
+      transparent 55%
+    );
+
+  opacity: 0.7;
+
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+}
+
+/* top line */
+.sponsor-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,230,230,0.9),
+      transparent
+    );
+
+  opacity: 0.8;
+}
+
+/* hover */
+.sponsor-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(0,255,255,0.18);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.65),
+    0 0 24px rgba(0,255,255,0.08);
+}
+
+.sponsor-card:hover::before {
+  opacity: 1;
+}
+.skin-container {
+  width: 170px;
+  height: 210px;
+  flex-shrink: 0;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.02);
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skin-container canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 100%;
+  display: block;
+}
+
+.sponsor-info h2 {
+  font-size: 1.7rem;
+  color: white;
+  margin-bottom: 8px;
+  margin-top: 0;
+  line-height: 1.35; /* было ~1.7 → делаем плотнее */
+}
+
+@font-face {
+  font-family: "Minecraft Rus";
+  src: url("fonts/minecraft.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.sponsor-name {
+  font-family: "Minecraft Rus", Arial, sans-serif;
+  font-size: 1.7rem;
+
+  background: linear-gradient(90deg, #00e6e6, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.months {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.sponsor-description {
+  color: rgba(255,255,255,0.72);
+
+  line-height: 1.7;
+  font-size: 0.97rem;
+}
+
+/* =========================
+   ADAPTIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .sponsor-header {
+    padding-top: 135px;
+  }
+
+  .sponsor-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .sponsor-container {
+    width: 92%;
+  }
+
+}
+
+/* ===== Маленькая GIF ===== */
+
+.easter-gif3 {
+  width: 28px;
+  height: 28px;
+
+  position: fixed;
+
+  cursor: pointer;
+
+  top: 120px;
+  right: 40px;
+
+  z-index: 99999;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.easter-gif3.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hover */
+.easter-gif3:hover {
+  transform: scale(1.12) rotate(4deg);
+  opacity: 1;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+/* ===== ВЗРЫВ ===== */
+
+.easter-gif3.explode {
+  animation: explodeAnim 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.easter-gif3.hidden {
+  display: none;
+}
+
+@keyframes explodeAnim {
+
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter:
+      brightness(1)
+      blur(0px);
+  }
+
+  15% {
+    transform: scale(1.35) rotate(-8deg);
+    filter:
+      brightness(2)
+      blur(0px);
+  }
+
+  35% {
+    transform: scale(2.2) rotate(12deg);
+    opacity: 1;
+
+    filter:
+      brightness(5)
+      blur(1px)
+      drop-shadow(0 0 25px #fff);
+  }
+
+  55% {
+    transform: scale(2.8) rotate(-18deg);
+
+    filter:
+      brightness(9)
+      blur(4px)
+      drop-shadow(0 0 40px #ff00ff);
+  }
+
+  100% {
+    transform:
+      scale(0)
+      rotate(40deg);
+
+    opacity: 0;
+
+    filter:
+      brightness(14)
+      blur(12px);
+  }
+}
+
+.easter-notification3 {
+  position: fixed;
+
+  left: 50%;
+  top: 28px;
+
+  transform:
+    translateX(-50%)
+    translateY(-160px)
+    scale(0.6);
+
+  padding: 16px 30px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #a855f7,
+      #ec4899
+    );
+
+  color: white;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  z-index: 2147483647;
+
+  border: 2px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 0 25px rgba(168,85,247,0.45),
+    0 0 60px rgba(236,72,153,0.25);
+
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  will-change: transform, opacity;
+}
+
+/* ===== Появление ===== */
+
+.easter-notification3.show {
+  animation: notificationIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ===== Исчезновение ===== */
+
+.easter-notification3.hide {
+  animation: notificationOut 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* ===== Появление ===== */
+
+@keyframes notificationIn {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.6)
+      rotate(-4deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+
+  60% {
+    transform:
+      translateX(-50%)
+      translateY(10px)
+      scale(1.08)
+      rotate(2deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+}
+
+/* ===== Исчезновение ===== */
+
+@keyframes notificationOut {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  30% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1.06)
+      rotate(-2deg);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.75)
+      rotate(6deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+}

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта — Project</title>
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+
+    <!-- ============= Плавающая шапка ============= -->
+    <header class="floating-header">
+  <img src="images/server_icon.png" alt="Server Icon" class="server-icon">
+
+  <nav class="nav-menu">
+    <a class="nav-link" href="main.html">Главная</a>
+    <a class="nav-link" href="rules.html">Правила</a>
+    <a class="nav-link" href="wiki.html">Вики</a>
+    <a class="nav-link" href="map.html">Карта</a>
+    <a class="nav-link" href="seasons.html">Сезоны</a>
+    <a class="nav-link" href="sponsor.html">Спонсортсво</a>
+  </nav>
+
+  <a class="account-btn" href="https://discord.com/channels/1322890116660047893/1496967637836759131">
+    <img src="images/account_icon.png" alt="Поддержка">
+  </a>
+</header>
+<!-- уведомление -->
+<div
+  id="easter-notification5"
+  class="easter-notification5"
+>
+  🥚 Пасхалка найдена •
+  <span id="easter-count">0/5</span>
+</div>
+<div class="floating-socials">
+
+  <a href="https://tiktok.com/@izzziland" target="_blank">
+    <div class="social-circle tiktok">
+      <img src="images/tiktok-icon3.png" alt="TikTok">
+    </div>
+  </a>
+
+  <a href="https://www.youtube.com/@izzziland" target="_blank">
+    <div class="social-circle youtube">
+      <img src="images/youtube-icon3.png" alt="YouTube">
+    </div>
+  </a>
+
+  <a href="https://t.me/izziland25" target="_blank">
+    <div class="social-circle telegram">
+      <img src="images/telegram-icon3.png" alt="Telegram">
+    </div>
+  </a>
+
+  <a href="https://discord.gg/d5fYv8JjGu" target="_blank">
+    <div class="social-circle discord">
+      <img src="images/discord-icon3.png" alt="Discord">
+    </div>
+  </a>
+  <!-- GIF -->
+
+</div>
+<header class="main-header">
+  <h1>Карта сервера izzziland</h1>
+  
+</header>
+
+    <!-- =========================
+     MAP SECTION
+========================= -->
+
+<section class="map-section">
+  <!-- декоративное свечение -->
+  <div class="map-bg-glow map-glow-1"></div>
+  <div class="map-bg-glow map-glow-2"></div>
+
+  <div class="map-wrapper">
+
+    <!-- TOP BAR -->
+    <div class="map-info">
+
+      <div class="map-info-left">
+        <span class="map-status" id="secret-quiz-btn"></span>
+
+        <div class="map-status-text">
+          <span class="map-online-title">Карта сервера активна</span>
+          <span class="map-online-subtitle">
+            Live Dynmap • izzziland
+          </span>
+        </div>
+      </div>
+
+      <a
+        href="https://map.sakeva.net/"
+        target="_blank"
+        class="open-map-btn"
+      >
+        <span>Открыть карту</span>
+
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M7 17L17 7M17 7H9M17 7V15"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+    </div>
+
+    <!-- MAP -->
+    <!-- MAP -->
+<div class="map-frame-wrapper" id="map-wrapper">
+
+  <!-- glow border -->
+  <div class="map-frame-glow"></div>
+
+  <iframe
+    src="https://map.sakeva.net/?zoomcontrol=false&worldswitcher=false&mapsidebar=false&compass=false&coordinates=false&ui=false#minecraft_overworld;flat;616,64,-260;0"
+    class="server-map">
+  </iframe>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-container" id="quiz-container">
+
+  <div class="quiz-card">
+
+    <div class="quiz-top">
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- QUESTION 1 -->
+<div
+  class="quiz-question active"
+  data-correct="dynmap"
+>
+
+  <div class="quiz-step">01</div>
+
+  <h2>
+    Как называется карта сервера
+    Minecraft в браузере?
+  </h2>
+
+  <div class="quiz-input-area">
+
+    <input
+      type="text"
+      class="quiz-input"
+      placeholder="Введите ответ..."
+      autocomplete="off"
+    >
+
+    <button class="quiz-submit">
+      Ответить
+    </button>
+
+  </div>
+
+  <div class="quiz-error">
+    Неверный ответ
+  </div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+<div
+  class="quiz-question"
+  data-correct="5"
+>
+
+  <div class="quiz-step">02</div>
+
+  <h2>
+    Сколько игроков минимум
+    нужно для города?
+  </h2>
+
+  <div class="quiz-input-area">
+
+    <input
+      type="text"
+      class="quiz-input"
+      placeholder="Введите ответ..."
+      autocomplete="off"
+    >
+
+    <button class="quiz-submit">
+      Ответить
+    </button>
+
+  </div>
+
+  <div class="quiz-error">
+    Неверный ответ
+  </div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+<div
+  class="quiz-question"
+  data-correct="nether"
+>
+
+  <div class="quiz-step">03</div>
+
+  <h2>
+    Где разрешены длинные
+    ледяные дороги?
+  </h2>
+
+  <div class="quiz-input-area">
+
+    <input
+      type="text"
+      class="quiz-input"
+      placeholder="Введите ответ..."
+      autocomplete="off"
+    >
+
+    <button class="quiz-submit">
+      Ответить
+    </button>
+
+  </div>
+
+  <div class="quiz-error">
+    Неверный ответ
+  </div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+<div
+  class="quiz-question"
+  data-correct="fairplay"
+>
+
+  <div class="quiz-step">04</div>
+
+  <h2>
+    Что запрещено нарушать
+    на сервере?
+  </h2>
+
+  <div class="quiz-input-area">
+
+    <input
+      type="text"
+      class="quiz-input"
+      placeholder="Введите ответ..."
+      autocomplete="off"
+    >
+
+    <button class="quiz-submit">
+      Ответить
+    </button>
+
+  </div>
+
+  <div class="quiz-error">
+    Неверный ответ
+  </div>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+<div
+  class="quiz-question"
+  data-correct="izzziland"
+>
+
+  <div class="quiz-step">05</div>
+
+  <h2>
+    Как называется сервер?
+  </h2>
+
+  <div class="quiz-input-area">
+
+    <input
+      type="text"
+      class="quiz-input"
+      placeholder="Введите ответ..."
+      autocomplete="off"
+    >
+
+    <button class="quiz-submit">
+      Ответить
+    </button>
+
+  </div>
+
+  <div class="quiz-error">
+    Неверный ответ
+  </div>
+
+</div>
+
+  </div>
+
+</div>
+
+  </div>
+
+</section>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-line">
+      <div class="footer-left">
+        <a href="https://tiktok.com/@izzziland" class="social-link"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+        <a href="https://www.youtube.com/@izzziland" class="social-link"><img src="images/youtube-icon.png" alt="YouTube"></a>
+      </div>
+
+      <div class="footer-center">
+        <span class="server-ip">IP: play.izzziland.ru</span>
+        <span class="divider">|</span>
+        <span class="copyright">© 2026 izzziland</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://t.me/izzziland" class="social-link"><img src="images/telegram-icon.png" alt="Telegram"></a>
+        <a href="https://discord.gg/d5fYv8JjGu" class="social-link"><img src="images/discord-icon2.png" alt="Discord"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<img
+  src="images/izziland_new.gif"
+  class="easter-gif5"
+  id="easterGif5"
+  alt=""
+>
+</body>
+</html>
+
+<script>
+const mapStatus = document.querySelector('.map-status');
+
+const mapWrapper =
+  document.querySelector('.map-wrapper');
+
+const quizContainer =
+  document.getElementById('quiz-container');
+
+const questions =
+  document.querySelectorAll('.quiz-question');
+
+const easterGif5 =
+  document.getElementById('easterGif5');
+
+const notification5 =
+  document.getElementById('easter-notification5');
+
+const counter =
+  document.getElementById('easter-count');
+
+const STORAGE_KEY =
+  'izzziland_easter_1';
+
+const QUIZ_COOLDOWN =
+  'izzziland_quiz_cooldown';
+
+const QUIZ_COMPLETE =
+  'izzziland_quiz_complete';
+
+// ВСЕ пасхалки
+let collected =
+  JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+  ) || {};
+
+// обновление счетчика
+function updateCounter() {
+
+  const total = Object
+    .values(collected)
+    .filter(Boolean)
+    .length;
+
+  counter.textContent =
+    `${total}/5`;
+}
+
+updateCounter();
+
+// если уже собрана
+if (collected.easter5 && easterGif5) {
+
+  easterGif5.remove();
+
+}
+
+// уже прошёл тест
+const alreadyCompleted =
+  localStorage.getItem(
+    QUIZ_COMPLETE
+  ) === 'true';
+
+// таймер блокировки
+let cooldownUntil =
+  parseInt(
+    localStorage.getItem(
+      QUIZ_COOLDOWN
+    )
+  ) || 0;
+
+// экран таймера
+const cooldownScreen =
+  document.createElement('div');
+
+cooldownScreen.className =
+  'quiz-cooldown-screen';
+
+quizContainer.appendChild(
+  cooldownScreen
+);
+
+// =========================
+// ADD: режим квиза (важно для свечения)
+// =========================
+function setQuizMode(on) {
+  document.body.classList.toggle('quiz-open', on);
+  mapWrapper.classList.toggle('quiz-open', on);
+}
+
+// сброс
+function resetQuiz() {
+
+  questions.forEach(q => {
+
+    q.classList.remove('active');
+
+    const input =
+      q.querySelector('.quiz-input');
+
+    if (input) {
+
+      input.value = '';
+
+      input.classList.remove(
+        'correct',
+        'wrong'
+      );
+
+    }
+
+  });
+
+  questions[0].classList.add('active');
+}
+
+// формат времени
+function formatTime(ms) {
+
+  const totalSeconds =
+    Math.ceil(ms / 1000);
+
+  const minutes =
+    Math.floor(totalSeconds / 60);
+
+  const seconds =
+    totalSeconds % 60;
+
+  return `${minutes}:${
+    seconds
+      .toString()
+      .padStart(2, '0')
+  }`;
+}
+
+// показать таймер
+function showCooldown() {
+
+  cooldownScreen.style.display =
+    'flex';
+
+  function update() {
+
+    const left =
+      cooldownUntil - Date.now();
+
+    if (left <= 0) {
+
+      cooldownScreen.style.display =
+        'none';
+
+      // ADD: вернуть карту
+      setQuizMode(false);
+
+      return;
+    }
+
+    cooldownScreen.innerHTML = `
+      <div class="quiz-cooldown-box">
+        <h2>❌ Попробуй снова</h2>
+        <div class="quiz-cooldown-timer">
+          ${formatTime(left)}
+        </div>
+      </div>
+    `;
+
+    requestAnimationFrame(update);
+
+  }
+
+  update();
+
+}
+
+// ОТКРЫТЬ КВИЗ
+mapStatus.addEventListener('click', () => {
+
+  if (alreadyCompleted) return;
+
+  // ADD
+  setQuizMode(true);
+
+  // кулдаун
+  if (Date.now() < cooldownUntil) {
+
+    quizContainer.style.display =
+      'flex';
+
+    document.querySelector('.map-info')
+      .style.display = 'none';
+
+    document.querySelector('.map-frame-wrapper')
+      .style.display = 'none';
+
+    showCooldown();
+
+    return;
+
+  }
+
+  cooldownScreen.style.display =
+    'none';
+
+  document.querySelector('.map-info')
+    .style.display = 'none';
+
+  document.querySelector('.map-frame-wrapper')
+    .style.display = 'none';
+
+  quizContainer.style.display =
+    'flex';
+
+  resetQuiz();
+
+});
+
+// ВОПРОСЫ
+questions.forEach((question, index) => {
+
+  const input =
+    question.querySelector('.quiz-input');
+
+  const submit =
+    question.querySelector('.quiz-submit');
+
+  if (!input || !submit) return;
+
+  function failQuiz() {
+
+    cooldownUntil =
+      Date.now() + 60000;
+
+    localStorage.setItem(
+      QUIZ_COOLDOWN,
+      cooldownUntil
+    );
+
+    resetQuiz();
+
+    showCooldown();
+
+  }
+
+  function checkAnswer() {
+
+    const answer =
+      input.value
+        .trim()
+        .toLowerCase();
+
+    const correct =
+      question.dataset.correct
+        .trim()
+        .toLowerCase();
+
+    if (answer !== correct) {
+
+      input.classList.add('wrong');
+
+      input.animate([
+        { transform: 'translateX(-6px)' },
+        { transform: 'translateX(6px)' },
+        { transform: 'translateX(-4px)' },
+        { transform: 'translateX(0)' }
+      ], { duration: 350 });
+
+      setTimeout(() => {
+
+        input.classList.remove('wrong');
+
+        failQuiz();
+
+      }, 600);
+
+      return;
+    }
+
+    input.classList.add('correct');
+
+    setTimeout(() => {
+
+      question.classList.remove('active');
+
+      const nextQuestion =
+        questions[index + 1];
+
+      if (nextQuestion) {
+
+        nextQuestion.classList.add('active');
+
+      } else {
+
+        localStorage.setItem(
+          QUIZ_COMPLETE,
+          'true'
+        );
+
+        quizContainer.style.display =
+          'none';
+
+        document.querySelector('.map-info')
+          .style.display = 'flex';
+
+        document.querySelector('.map-frame-wrapper')
+          .style.display = 'block';
+
+        // ADD
+        setQuizMode(false);
+
+        mapStatus.style.pointerEvents =
+          'none';
+
+        mapStatus.style.opacity =
+          '0.4';
+
+        if (
+          easterGif5 &&
+          !collected.easter5
+        ) {
+
+          easterGif5.classList.add(
+            'visible'
+          );
+
+        }
+
+        resetQuiz();
+
+      }
+
+    }, 500);
+
+  }
+
+  submit.addEventListener(
+    'click',
+    checkAnswer
+  );
+
+  input.addEventListener(
+    'keydown',
+    e => {
+
+      if (e.key === 'Enter') {
+
+        checkAnswer();
+
+      }
+
+    }
+  );
+
+});
+
+if (alreadyCompleted) {
+
+  mapStatus.style.pointerEvents =
+    'none';
+
+  mapStatus.style.opacity =
+    '0.4';
+
+}
+
+// GIF
+if (easterGif5) {
+
+  easterGif5.addEventListener(
+    'click',
+    () => {
+
+      if (collected.easter5) return;
+
+      collected.easter5 = true;
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(collected)
+      );
+
+      updateCounter();
+
+      easterGif5.classList.add(
+        'explode'
+      );
+
+      setTimeout(() => {
+        easterGif5.remove();
+      }, 1000);
+
+      notification5.classList.remove('hide');
+      notification5.classList.add('show');
+
+      setTimeout(() => {
+
+        notification5.classList.remove('show');
+        notification5.classList.add('hide');
+
+      }, 2500);
+
+    }
+  );
+
+}
+</script>

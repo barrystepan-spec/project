@@ -1,0 +1,1227 @@
+
+
+@import url('main.css');
+
+/* =========================================
+   MAP SECTION
+========================================= */
+/* УБРАТЬ ФОН У СЕКЦИИ */
+
+.map-section {
+  position: relative;
+
+  padding:
+    20px
+    40px
+    130px;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* убрать фоновые свечения */
+
+.map-bg-glow {
+  display: none;
+}
+
+.map-glow-1 {
+  width: 420px;
+  height: 420px;
+
+  background: #00ffff;
+
+  top: 120px;
+  left: -120px;
+}
+
+.map-glow-2 {
+  width: 340px;
+  height: 340px;
+
+  background: #00bfff;
+
+  bottom: 80px;
+  right: -100px;
+}
+
+/* =========================================
+   WRAPPER
+========================================= */
+
+.map-wrapper {
+  background: transparent !important;
+
+  border: none !important;
+
+  box-shadow: none !important;
+
+  backdrop-filter: none !important;
+  position: relative;
+
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  border-radius: 34px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16,16,18,0.95),
+      rgba(8,8,10,0.98)
+    );
+
+  border:
+    1px solid rgba(0,255,255,0.10);
+
+  box-shadow:
+    0 0 60px rgba(0,255,255,0.07),
+    inset 0 0 30px rgba(255,255,255,0.015);
+
+  backdrop-filter: blur(18px);
+}
+
+/* верхняя полоска */
+
+.map-wrapper::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,255,255,0.95),
+      transparent
+    );
+
+  z-index: 3;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* =========================================
+   TOP PANEL
+========================================= */
+
+.map-info {
+  position: relative;
+
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  background:
+    rgba(255,255,255,0.025);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+
+  z-index: 2;
+}
+
+.map-info-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* индикатор */
+
+.map-status {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #00ff99;
+
+  box-shadow:
+    0 0 14px #00ff99,
+    0 0 28px rgba(0,255,153,0.5);
+
+  animation: pulseMap 2s infinite;
+}
+
+@keyframes pulseMap {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* текст */
+
+.map-status-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-online-title {
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.map-online-subtitle {
+  color: rgba(255,255,255,0.48);
+
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.open-map-btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding:
+    13px
+    22px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,255,255,0.18),
+      rgba(0,180,180,0.10)
+    );
+
+  border:
+    1px solid rgba(0,255,255,0.18);
+
+  color: #dfffff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.open-map-btn svg {
+  width: 17px;
+  height: 17px;
+
+  transition: transform 0.25s ease;
+}
+
+/* блик */
+
+.open-map-btn::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -140%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.22),
+      transparent
+    );
+
+  transform: skewX(-24deg);
+
+  transition: 0.7s ease;
+}
+
+.open-map-btn:hover {
+  transform:
+    translateY(-2px)
+    scale(1.02);
+
+  border-color:
+    rgba(0,255,255,0.34);
+
+  box-shadow:
+    0 0 26px rgba(0,255,255,0.18);
+}
+
+.open-map-btn:hover::before {
+  left: 150%;
+}
+
+.open-map-btn:hover svg {
+  transform:
+    translateX(3px)
+    translateY(-3px);
+}
+
+/* =========================================
+   MAP FRAME
+========================================= */
+
+.map-frame-wrapper {
+  position: relative;
+
+  padding: 14px;
+}
+
+.map-frame-glow {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(0,255,255,0.08),
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+/* карта */
+
+.server-map {
+  position: relative;
+
+  width: 100%;
+  height: 760px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  background: #111;
+
+  z-index: 2;
+}
+
+/* =========================================
+   ADAPTIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .map-section {
+    padding:
+      10px
+      14px
+      90px;
+  }
+
+  .map-info {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    height: auto;
+
+    padding: 20px;
+  }
+
+  .server-map {
+    height: 65vh;
+  }
+
+  .map-wrapper {
+    border-radius: 24px;
+  }
+
+  .open-map-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+/* ===================================================
+   ULTRA QUIZ UI
+=================================================== */
+
+.quiz-container {
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 720px;
+
+  padding: 60px 20px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* фон */
+
+.quiz-container::before {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+/* карточка */
+
+.quiz-question {
+  display: none;
+  flex-direction: column;
+  gap: 28px;
+
+  width: 100%;
+  max-width: 720px;
+
+  padding: 30px;
+
+  border-radius: 26px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  animation: popIn 0.35s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.quiz-question h2 {
+  font-size: 26px;
+  color: white;
+  text-shadow: 0 0 20px rgba(0,255,255,0.2);
+}
+
+.quiz-question::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,255,255,0.14),
+      transparent 70%
+    );
+
+  top: -180px;
+  right: -140px;
+
+  pointer-events: none;
+}
+
+/* линия сверху */
+
+.quiz-question::after {
+
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,255,255,0.9),
+      transparent
+    );
+}
+
+.quiz-question.active {
+  display: flex;
+}
+
+@keyframes quizAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(40px)
+      scale(.94);
+
+    filter: blur(10px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+/* номер */
+
+.quiz-step {
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  border-radius: 18px;
+
+  margin-bottom: 30px;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d2ff,
+      #7a5cff
+    );
+
+  box-shadow:
+    0 0 25px rgba(0,210,255,0.35);
+}
+
+/* заголовок */
+
+.quiz-question h2 {
+
+  font-size: 42px;
+  line-height: 1.3;
+
+  color: white;
+
+  margin-bottom: 40px;
+
+  font-weight: 800;
+
+  letter-spacing: -.02em;
+}
+
+/* поле */
+
+.quiz-input-area {
+
+  display: flex;
+  gap: 18px;
+}
+
+.quiz-input {
+
+  flex: 1;
+
+  height: 74px;
+
+  border-radius: 22px;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  background:
+    rgba(255,255,255,0.04);
+
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  font-size: 19px;
+  font-weight: 500;
+
+  padding: 0 28px;
+
+  outline: none;
+
+  transition:
+    .25s ease;
+}
+
+.quiz-input::placeholder {
+
+  color:
+    rgba(255,255,255,0.28);
+}
+
+.quiz-input:focus {
+
+  border-color:
+    rgba(0,255,255,0.55);
+
+  background:
+    rgba(255,255,255,0.06);
+
+  box-shadow:
+    0 0 35px rgba(0,255,255,0.15);
+}
+
+/* кнопка */
+
+.quiz-submit {
+
+  position: relative;
+
+  min-width: 190px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d2ff,
+      #6d5cff,
+      #b84dff
+    );
+
+  background-size: 200% 200%;
+
+  animation:
+    buttonGradient 5s ease infinite;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+@keyframes buttonGradient {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.quiz-submit::before {
+
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: .7s;
+}
+
+.quiz-submit:hover {
+
+  transform:
+    translateY(-3px)
+    scale(1.03);
+
+  box-shadow:
+    0 0 35px rgba(0,210,255,0.35);
+}
+
+.quiz-submit:hover::before {
+
+  left: 150%;
+}
+
+/* ошибки */
+
+.quiz-error {
+
+  opacity: 0;
+
+  transform:
+    translateY(10px);
+
+  margin-top: 22px;
+
+  color: #ff7272;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: .25s ease;
+}
+
+.quiz-error.show {
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+/* success */
+
+.quiz-input.correct {
+
+  border-color: #2ecc71;
+
+  box-shadow:
+    0 0 30px rgba(46,204,113,.28);
+}
+
+/* wrong */
+
+.quiz-input.wrong {
+
+  border-color: #ff4d4d;
+
+  animation:
+    inputShake .35s;
+}
+
+@keyframes inputShake {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-8px);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+
+  75% {
+    transform: translateX(-6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.quiz-answers button {
+  position: relative;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+
+  padding: 16px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: rgba(255,255,255,0.05);
+
+  transition: 0.25s ease;
+
+  overflow: hidden;
+}
+
+.quiz-answers button::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,255,0.2),
+    transparent
+  );
+
+  transform: translateX(-120%);
+  transition: 0.6s;
+}
+
+.quiz-answers button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0,255,255,0.35);
+  box-shadow: 0 0 20px rgba(0,255,255,0.15);
+}
+
+.quiz-answers button:hover::before {
+  transform: translateX(120%);
+}
+
+.quiz-answers button.correct {
+  background: rgba(46, 204, 113, 0.25);
+  border-color: #2ecc71;
+}
+
+.quiz-answers button.wrong {
+  background: rgba(255, 77, 77, 0.25);
+  border-color: #ff4d4d;
+}
+/* adaptive */
+
+@media (max-width: 900px) {
+
+  .quiz-question {
+
+    padding: 34px;
+  }
+
+  .quiz-question h2 {
+
+    font-size: 30px;
+  }
+
+  .quiz-input-area {
+
+    flex-direction: column;
+  }
+
+  .quiz-submit {
+
+    height: 70px;
+  }
+}
+
+.easter-gif5 {
+  position: fixed;
+
+  left: 34px;
+  bottom: 34px;
+
+  width: 34px;
+  height: 34px;
+  
+  object-fit: contain;
+
+  opacity: 0.9;
+  pointer-events: none;
+
+  transform:
+    scale(0.7);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
+
+  z-index: 9999;
+
+  cursor: pointer;
+
+  display: none; /* ← ВАЖНО: изначально скрыта */
+}
+
+
+.easter-gif5.visible {
+  display: block; /* ← показываем только когда нужно */
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Hover */
+.easter-gif5:hover {
+  transform: scale(1.12) rotate(4deg);
+  opacity: 1;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+/* ===== ВЗРЫВ ===== */
+
+.easter-gif5.explode {
+  animation: explodeAnim 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes explodeAnim {
+
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter:
+      brightness(1)
+      blur(0px);
+  }
+
+  15% {
+    transform: scale(1.35) rotate(-8deg);
+    filter:
+      brightness(2)
+      blur(0px);
+  }
+
+  35% {
+    transform: scale(2.2) rotate(12deg);
+    opacity: 1;
+
+    filter:
+      brightness(5)
+      blur(1px)
+      drop-shadow(0 0 25px #fff);
+  }
+
+  55% {
+    transform: scale(2.8) rotate(-18deg);
+
+    filter:
+      brightness(9)
+      blur(4px)
+      drop-shadow(0 0 40px #ff00ff);
+  }
+
+  100% {
+    transform:
+      scale(0)
+      rotate(40deg);
+
+    opacity: 0;
+
+    filter:
+      brightness(14)
+      blur(12px);
+  }
+}
+
+.easter-notification5 {
+  position: fixed;
+
+  left: 50%;
+  top: 28px;
+
+  transform:
+    translateX(-50%)
+    translateY(-160px)
+    scale(0.6);
+
+  padding: 16px 30px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #a855f7,
+      #ec4899
+    );
+
+  color: white;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  z-index: 2147483647;
+
+  border: 2px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 0 25px rgba(168,85,247,0.45),
+    0 0 60px rgba(236,72,153,0.25);
+
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  will-change: transform, opacity;
+}
+
+/* ===== Появление ===== */
+
+.easter-notification5.show {
+  animation: notificationIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ===== Исчезновение ===== */
+
+.easter-notification5.hide {
+  animation: notificationOut 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* ===== Появление ===== */
+
+@keyframes notificationIn {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.6)
+      rotate(-4deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+
+  60% {
+    transform:
+      translateX(-50%)
+      translateY(10px)
+      scale(1.08)
+      rotate(2deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+}
+
+/* ===== Исчезновение ===== */
+
+@keyframes notificationOut {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1)
+      rotate(0deg);
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  30% {
+    transform:
+      translateX(-50%)
+      translateY(0px)
+      scale(1.06)
+      rotate(-2deg);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(-160px)
+      scale(0.75)
+      rotate(6deg);
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+}
+
+/* =========================================
+   QUIZ OPEN
+========================================= */
+
+.map-wrapper.quiz-open {
+  background: transparent !important;
+  border: none !important;
+
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* верхняя линия */
+.map-wrapper.quiz-open::before {
+  opacity: 0 !important;
+}
+
+/* glow поверх карты */
+.map-wrapper.quiz-open .map-frame-glow {
+  display: none !important;
+}
+
+/* iframe glow */
+.map-wrapper.quiz-open .server-map {
+  box-shadow: none !important;
+  filter: none !important;
+}
+.map-wrapper.quiz-open .map-frame-glow {
+  opacity: 0;
+}
+
+.map-wrapper.quiz-open .quiz-container {
+  animation:
+    quizAppear 0.45s ease;
+}
+
+@keyframes quizAppear {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(20px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* FAQ не должен резать элементы */
+.faq-section,
+.faq-container,
+.faq-item,
+.faq-answer {
+  overflow: visible !important;
+}
+.quiz-cooldown-screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+
+  z-index: 999;
+}
+
+.quiz-cooldown-box {
+  text-align: center;
+
+  padding: 28px 34px;
+  border-radius: 22px;
+
+  background: rgba(20, 20, 30, 0.85);
+
+  border: 1px solid rgba(0,255,255,0.15);
+
+  box-shadow: 0 0 40px rgba(0,255,255,0.2);
+}
+
+.quiz-cooldown-box h2 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.quiz-cooldown-timer {
+  font-size: 42px;
+  font-weight: 700;
+
+  color: #00ffff;
+
+  text-shadow: 0 0 15px rgba(0,255,255,0.5);
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спонсоры - izzziland</title>
+  <link href="https://fonts-online.ru/fonts/minecraft-rus" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="sponsor.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="floating-header">
+  <img src="images/server_icon.png" alt="Server Icon" class="server-icon">
+
+  <nav class="nav-menu">
+    <a class="nav-link" href="main.html">Главная</a>
+    <a class="nav-link" href="rules.html">Правила</a>
+    <a class="nav-link" href="wiki.html">Вики</a>
+    <a class="nav-link" href="map.html">Карта</a>
+    <a class="nav-link" href="seasons.html">Сезоны</a>
+    <a class="nav-link" href="sponsor.html">Спонсортсво</a>
+  </nav>
+
+  <a class="account-btn" href="https://discord.com/channels/1322890116660047893/1496967637836759131">
+    <img src="images/account_icon.png" alt="Поддержка">
+  </a>
+</header>
+
+<!-- SOCIALS -->
+<div class="floating-socials">
+
+  <a href="https://tiktok.com/@izzziland" target="_blank">
+    <div class="social-circle tiktok">
+      <img src="images/tiktok-icon3.png" alt="TikTok">
+    </div>
+  </a>
+
+  <a href="https://www.youtube.com/@izzziland" target="_blank">
+    <div class="social-circle youtube">
+      <img src="images/youtube-icon3.png" alt="YouTube">
+    </div>
+  </a>
+
+  <a href="https://t.me/izziland25" target="_blank">
+    <div class="social-circle telegram">
+      <img src="images/telegram-icon3.png" alt="Telegram">
+    </div>
+  </a>
+
+  <a href="https://discord.gg/d5fYv8JjGu" target="_blank">
+    <div class="social-circle discord">
+      <img src="images/discord-icon3.png" alt="Discord">
+    </div>
+  </a>
+
+</div>
+
+<img
+  id="easter-gif3"
+  src="images/izziland_new.gif"
+  alt="Easter Egg"
+  class="easter-gif3"
+/>
+
+<div id="easter-notification3" class="easter-notification3">
+  🥚 Пасхалка найдена • <span id="easter-count">0/5</span>
+</div>
+
+<!-- HERO -->
+<header class="main-header">
+  <h1>Спонсоры проекта</h1>
+  <p>
+    Люди, которые помогают развитию сервера izzziland
+  </p>
+</header>
+
+<!-- CONTENT -->
+<main class="sponsor-container">
+
+  <div class="sponsor-card">
+
+    <div class="skin-container">
+      <canvas id="skin_1"></canvas>
+    </div>
+
+    <div class="sponsor-info">
+
+      <h2 class="sponsor-name">Dy_L_an</h2>
+
+      <div class="months">
+        18 месяцев подряд спонсор
+      </div>
+
+      <p class="sponsor-description">
+        Владелец сервера, поддерживает сервер с начала его создания.
+      </p>
+
+    </div>
+
+  </div>
+
+    <div class="sponsor-card">
+
+    <div class="skin-container">
+      <canvas id="skin_2"></canvas>
+    </div>
+
+    <div class="sponsor-info">
+
+      <h2 class="nick-whitegray">Тут можете быть вы</h2>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-line">
+
+      <div class="footer-left">
+        <a href="https://tiktok.com/@izzziland" class="social-link">
+          <img src="images/tiktok-icon.png" alt="TikTok">
+        </a>
+
+        <a href="https://www.youtube.com/@izzziland" class="social-link">
+          <img src="images/youtube-icon.png" alt="YouTube">
+        </a>
+      </div>
+
+      <div class="footer-center">
+        <span class="server-ip">IP: play.izzziland.ru</span>
+        <span class="divider">|</span>
+        <span>© 2026 izzziland</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://t.me/izziland25" class="social-link">
+          <img src="images/telegram-icon.png" alt="Telegram">
+        </a>
+
+        <a href="https://discord.gg/d5fYv8JjGu" class="social-link">
+          <img src="images/discord-icon2.png" alt="Discord">
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
+<script>
+const skinViewer = new skinview3d.SkinViewer({
+  canvas: document.getElementById("skin_1"),
+  width: 300,
+  height: 400,
+  skin: "https://i.postimg.cc/qR1xCkDm/93737843277ca1db.png"
+});
+
+skinViewer.zoom = 0.75;
+skinViewer.fov = 50;
+
+skinViewer.autoRotate = true;
+skinViewer.autoRotateSpeed = 1;
+
+const skin = skinViewer.playerObject.skin;
+
+/* мягкая поза ходьбы */
+skin.rightArm.rotation.x = -0.22;
+skin.leftArm.rotation.x = 0.22;
+
+skin.rightLeg.rotation.x = 0.16;
+skin.leftLeg.rotation.x = -0.16;
+
+skinViewer.playerObject.rotation.y = 0.25;
+</script>
+<script>
+const skinViewer2 = new skinview3d.SkinViewer({
+  canvas: document.getElementById("skin_2"),
+  width: 300,
+  height: 400,
+  skin: "https://minotar.net/skin/2lzi"
+});
+
+skinViewer2.zoom = 0.75;
+skinViewer2.fov = 50;
+skinViewer2.autoRotate = true;
+skinViewer2.autoRotateSpeed = 1;
+
+const skin2 = skinViewer2.playerObject.skin;
+
+skin2.rightArm.rotation.x = -0.12;
+skin2.leftArm.rotation.x = 0.12;
+skin2.rightLeg.rotation.x = 0.08;
+skin2.leftLeg.rotation.x = -0.08;
+skinViewer2.playerObject.rotation.y = 0.25;
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const easterGif = document.querySelector('.easter-gif3');
+  const notification = document.querySelector('.easter-notification3');
+  const counter = document.querySelector('#easter-count');
+
+  const STORAGE_KEY = "izzziland_easter_1";
+
+  let collected = JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+  ) || {
+    easter1: false,
+    easter2: false,
+    easter3: false
+  };
+
+  function updateCounter() {
+
+    const total = Object
+      .values(collected)
+      .filter(Boolean)
+      .length;
+
+    counter.textContent = `${total}/5`;
+  }
+
+  updateCounter();
+
+  // уже найдена
+  if (collected.easter3) {
+    easterGif.remove();
+    return;
+  }
+
+  // показать через 10 секунд
+  setTimeout(() => {
+
+    easterGif.classList.add('visible');
+
+  }, 10000);
+
+  // клик
+  easterGif.addEventListener('click', () => {
+
+    if (collected.easter3) return;
+
+    collected.easter3 = true;
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(collected)
+    );
+
+    updateCounter();
+
+    easterGif.classList.add('explode');
+
+    setTimeout(() => {
+
+      easterGif.remove();
+
+    }, 1200);
+
+    notification.classList.remove('hide');
+    notification.classList.add('show');
+
+    setTimeout(() => {
+
+      notification.classList.remove('show');
+      notification.classList.add('hide');
+
+    }, 2500);
+
+  });
+
+});
+</script>
+
+</body>
+</html>
